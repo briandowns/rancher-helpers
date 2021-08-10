@@ -1,6 +1,10 @@
 #!/bin/sh
 
-set -ex
+set -e
+
+if [ ! -z ${DEBUG} ]; then
+    set -x
+fi
 
 /home/bdowns/k3s server                         \
 	--cluster-init                              \

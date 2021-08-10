@@ -1,6 +1,10 @@
 #!/bin/sh
 
-set -ex
+set -e
+
+if [ ! -z ${DEBUG} ]; then
+    set -x
+fi
 
 ETCDCTL_API=3 etcdctl                                               \
     --cert /var/lib/rancher/k3s/server/tls/etcd/server-client.crt   \
